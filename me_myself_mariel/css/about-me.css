@@ -1,0 +1,314 @@
+html,
+body {
+    background-color: var(--white);
+    height: auto;
+}
+
+.bento-box {
+    display: grid;
+    width: 100vw;
+    height: auto;
+    grid-template-columns: repeat(9, 1fr);
+    gap: 20px;
+    padding: 20px;
+}
+
+.bento-box div {
+    border-radius: 10px;
+}
+
+.picture-mariel,
+.personal-philosophy {
+    background: var(--primary);
+}
+
+.full-name,
+.birthday,
+.age,
+.home,
+.hometown,
+.social-media,
+.discipline,
+.relationship {
+    background: var(--dark-purple);
+    height: auto;
+}
+
+.full-name-content,
+.birthday-content,
+.age-content,
+.home-content,
+.hometown-content,
+.gmail,
+.school-email,
+.mindset,
+.introspective {
+    background: var(--secondary);
+    height: auto;
+}
+
+.describe,
+.gratitude,
+.perspective,
+.kindness,
+.vigilance {
+    background-color: var(--dark-blue);
+}
+
+.bento-box div {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    overflow: hidden;
+    padding: 20px;
+    gap: 20px;
+}
+
+.picture-mariel {
+    grid-column: span 3 / span 3;
+    grid-row: span 7 / span 7;
+}
+
+.full-name {
+    grid-column: span 3 / span 3;
+    grid-column-start: 4;
+}
+
+.birthday {
+    grid-column: span 3 / span 3;
+    grid-column-start: 4;
+    grid-row-start: 2;
+}
+
+.age {
+    grid-column: span 3 / span 3;
+    grid-column-start: 4;
+    grid-row-start: 3;
+}
+
+.home {
+    grid-column: span 3 / span 3;
+    grid-column-start: 4;
+    grid-row-start: 4;
+}
+
+.hometown {
+    grid-column: span 3 / span 3;
+    grid-column-start: 4;
+    grid-row-start: 5;
+}
+
+.full-name-content {
+    grid-column: span 3 / span 3;
+    grid-column-start: 7;
+    grid-row-start: 1;
+}
+
+.birthday-content {
+    grid-column: span 3 / span 3;
+    grid-column-start: 7;
+    grid-row-start: 2;
+}
+
+.age-content {
+    grid-column: span 3 / span 3;
+    grid-column-start: 7;
+    grid-row-start: 3;
+}
+
+.home-content {
+    grid-column: span 3 / span 3;
+    grid-column-start: 7;
+    grid-row-start: 4;
+}
+
+.hometown-content {
+    grid-column: span 3 / span 3;
+    grid-column-start: 7;
+    grid-row-start: 5;
+}
+
+.social-media {
+    grid-column: span 6 / span 6;
+    grid-column-start: 4;
+    grid-row-start: 6;
+}
+
+.gmail {
+    grid-column: span 3 / span 3;
+    grid-column-start: 4;
+    grid-row-start: 7;
+}
+
+.school-email {
+    grid-column: span 3 / span 3;
+    grid-column-start: 7;
+    grid-row-start: 7;
+}
+
+.gratitude {
+    grid-column: span 3 / span 3;
+    grid-row: span 2 / span 2;
+    grid-column-start: 1;
+    grid-row-start: 9;
+}
+
+.discipline {
+    grid-column: span 3 / span 3;
+    grid-row: span 2 / span 2;
+    grid-column-start: 4;
+    grid-row-start: 9;
+}
+
+.mindset {
+    grid-column: span 3 / span 3;
+    grid-row: span 2 / span 2;
+    grid-column-start: 7;
+    grid-row-start: 9;
+}
+
+.introspective {
+    grid-column: span 5 / span 5;
+    grid-row: span 2 / span 2;
+    grid-column-start: 1;
+    grid-row-start: 11;
+}
+
+.perspective {
+    grid-column: span 4 / span 4;
+    grid-row: span 2 / span 2;
+    grid-column-start: 6;
+    grid-row-start: 11;
+}
+
+.kindness {
+    grid-column: span 3 / span 3;
+    grid-row: span 2 / span 2;
+    grid-column-start: 1;
+    grid-row-start: 13;
+}
+
+.relationship {
+    grid-column: span 3 / span 3;
+    grid-row: span 2 / span 2;
+    grid-column-start: 4;
+    grid-row-start: 13;
+}
+
+.vigilance {
+    grid-column: span 3 / span 3;
+    grid-row: span 2 / span 2;
+    grid-column-start: 7;
+    grid-row-start: 13;
+}
+
+.personal-philosophy {
+    grid-column: span 9 / span 9;
+    grid-column-start: 1;
+    grid-row-start: 8;
+}
+
+.picture-mariel {
+    background-image: url(../visuals/about_me/mariel.jpg);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    width: 100%;
+    height: 100%;
+}
+
+i {
+    color: var(--black);
+    opacity: 0.7;
+}
+
+.social-media i {
+    color: var(--white);
+}
+
+.social-media p {
+    padding-right: 10px;
+}
+
+.gmail a,
+.school-email a {
+    color: var(--white);
+    text-decoration: none;
+}
+
+.gmail a:hover,
+.school-email a:hover {
+    color: var(--orange);
+    text-decoration: underline;
+}
+
+.social-media i:hover{
+    color: var(--orange);
+}
+
+.social-media {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+span {
+    display: block;
+    text-align: right;
+}
+
+/* Media Queries for responsiveness */
+
+/* For devices with max-width: 480px (Mobile) */
+@media (max-width: 480px) {
+    .bento-box {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+    }
+    .bento-box div {
+        width: 90%;
+        text-align: center;
+    }
+    .picture-mariel {
+        width: 100%;
+        height: 200px;
+    }
+}
+
+/* For devices with width between 481px - 768px (Tablets) */
+@media (min-width: 481px) and (max-width: 768px) {
+    .bento-box {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+    }
+    .bento-box div {
+        width: 90%;
+        text-align: center;
+    }
+    .picture-mariel {
+        width: 100%;
+        min-height: 500px;
+    }
+}
+
+/* For devices with width between 769px - 1024px+ (Laptops & Desktops) */
+@media (min-width: 769px) and (max-width: 1024px) {
+    .bento-box {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+    }
+    .bento-box div {
+        width: 90%;
+        text-align: center;
+    }
+    .picture-mariel {
+        width: 100%;
+        min-height: 500px;
+    }
+}

@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="This is Mariel A. Gravidez's personal profile website.">
+  <meta name="keywords" content="creative portfolio, digital resume, personal website">
+  <meta name="author" content="Mariel A. Gravidez">
+
+  <title>Me, Myself, & Mariel</title>
+
+  <link rel="icon" href="visuals/mag_logo_32px.png" type="image/png">
+
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/homepage.css">
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+
+<body>
+
+  <div class="bento-box">
+    <div class="bento-boxes">
+      <div class="bb-me-myself-mariel">
+        <img src="visuals/homepage/mag_logo.png" alt="Mariel's Logo">
+        <div>
+          <h1>ME, MYSELF, & MARIEL</h1>
+          <p>Hello, world!<br> Feel free to explore my website.</p>
+        </div>
+      </div>
+
+      <div class="bb-picture">
+        <img src="visuals/homepage/mariel.png" alt="Mariel">
+      </div>
+
+      <div class="bb-about-me">
+        <h2>ABOUT ME</h2>
+        <p>Get to know who I am! Discover what makes me, me.</p>
+        <div class="social-icons">
+          <a href="https://www.facebook.com/not.mrlgrvdzzzz" target="_blank"><i
+              class="fa-brands fa-facebook fa-4x"></i></a>
+          <a href="https://www.instagram.com/not.mrlgrvdzzzz" target="_blank"><i
+              class="fa-brands fa-square-instagram fa-4x"></i></a>
+          <a href="https://open.spotify.com/user/31v4siypf3p7qxpvqfmemo2kkute?si=1a4510a4ab5f41bb" target="_blank"><i
+              class="fa-brands fa-spotify fa-4x"></i></a>
+          <a href="https://www.linkedin.com/in/marielagravidez" target="_blank"><i
+              class="fa-brands fa-linkedin fa-4x"></i></a>
+          <a href="https://github.com/magravidez" target="_blank"><i class="fa-brands fa-github fa-4x"></i></a>
+        </div>
+        <a href="about-me.html" class="navigate" aria-label="Go to About Me page">
+          <span class="material-symbols-outlined">open_in_new</span>
+        </a>
+      </div>
+
+      <div class="bb-it-experience">
+        <i class="fa-solid fa-computer fa-8x"></i>
+        <div>
+          <h2>IT EXPERIENCE</h2>
+          <p>As an IT student, discover the programming languages and tools I use.</p>
+          <a href="it-experience.html" class="navigate" aria-label="Go to IT Experience page">
+            <span class="material-symbols-outlined">open_in_new</span>
+          </a>
+        </div>
+      </div>
+
+      <div class="bb-hobbies-interests">
+        <i class="fa-solid fa-heart fa-8x"></i>
+        <div>
+          <h2>HOBBIES & INTERESTS</h2>
+          <p>Maybe we have something in common! Discover what I do when I'm bored.</p>
+          <a href="hobbies-interests.html" class="navigate" aria-label="Go to Hobbies & Interests page">
+            <span class="material-symbols-outlined">open_in_new</span>
+          </a>
+        </div>
+      </div>
+
+      <div class="bb-education-achievements">
+        <i class="fa-solid fa-book fa-8x"></i>
+        <div>
+            <h2>EDUCATION & ACHIEVEMENTS</h2>
+            <p>View my CV and discover the goals I've achieved on my academic journey.</p>
+            <a href="assets/MarielAGravidez_CV.pdf" class="navigate" aria-label="Download CV">
+              <span class="material-symbols-outlined">download</span>
+            </a>                                 
+        </div>
+    </div>    
+
+      <div class="bb-picture-gallery">
+        <i class="fa-solid fa-camera-retro fa-8x"></i>
+        <div>
+          <h2>PICTURE GALLERY</h2>
+          <p>I take pictures so I can remember! Discover my favorite pictures.</p>
+          <a href="picture-gallery.html" class="navigate" aria-label="Go to Picture Gallery page">
+            <span class="material-symbols-outlined">open_in_new</span>
+          </a>
+        </div>
+      </div>
+
+      <div class="bb-resources">
+        <div>
+          <h1>RESOURCES</h1>
+          <p>Here are the documents, materials, and websites that have helped me in development.</p>
+          <a href="https://docs.google.com/spreadsheets/d/1NrIK5CVmwvTubsgwq6SDBqJuq9Git7-GIEMmhJhHj8g/edit?usp=sharing" target="_blank" rel="noopener noreferrer" class="navigate" aria-label="Tinamad na akong ilipat eh">
+            <span class="material-symbols-outlined">open_in_new</span>
+          </a>
+        </div>
+      </div>
+
+      <div class="bb-feedback">
+        <div>
+          <h1>FEEDBACK</h1>
+          <p>What do you think about my website? I'd love to hear your thoughts!</p>
+          <a class="navigate" aria-label="Submit a Feedback">
+            <span class="material-symbols-outlined">open_in_new</span>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <div id="theme-modal" class="modal">
+      <div class="modal-content">
+        <h3>Welcome!</h3>
+        <p>For the best experience, view this website on a laptop. You'll appreciate the features more!</p>
+        <p>Before we begin, please choose a theme:</p>
+        <button id="light-mode-btn">Light Mode</button>
+        <button id="dark-mode-btn">Dark Mode</button>
+      </div>
+    </div>
+
+    <div id="feedbackModal" class="modal-feedback">
+      <div class="modal-content-feedback">
+        <span class="close"><i class="fa-solid fa-xmark"></i></span>
+        <h2>Feedback</h2>
+        <form id="feedbackForm">
+          <label for="fullName">Full Name:</label>
+          <input type="text" id="fullName" name="fullName" required>
+
+          <label for="email">Email:</label>
+          <input type="email" id="email" name="email" required>
+
+          <label for="favPage">What is your favorite page on my website, and why?</label>
+          <select id="favPage" name="favPage" required>
+            <option value="" disabled selected>Select a page</option>
+            <option value="Homepage">Homepage</option>
+            <option value="About Me">About Me</option>
+            <option value="IT Experience">IT Experience</option>
+            <option value="Hobbies & Interests">Hobbies & Interests</option>
+            <option value="Education & Achievements">Education & Achievements</option>
+            <option value="Picture Gallery">Picture Gallery</option>
+          </select>
+          <input type="text" id="favReason" name="favReason" placeholder="Tell me why..." required>
+
+          <label for="improve">What is one thing you think could be improved on the website?</label>
+          <textarea id="improve" name="improve" required></textarea>
+
+          <label for="comments">Other Comments/Suggestions:</label>
+          <textarea id="comments" name="comments"></textarea>
+
+          <button type="submit">Submit</button>
+        </form>
+        <p id="thankYouMessage" class="hidden">Thank you very much!</p>
+      </div>
+    </div>
+
+</body>
+
+<script src="js/main.js"></script>
+
+</html>
