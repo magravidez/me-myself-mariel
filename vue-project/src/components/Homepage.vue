@@ -37,9 +37,9 @@
           </a>
         </div>
         <!-- Use absolute path for CV and internal links if needed -->
-        <a href="about-me.html" class="navigate" aria-label="Go to About Me page">
-          <span class="material-symbols-outlined">open_in_new</span>
-        </a>
+        <router-link to="/about-me" class="navigate" aria-label="Go to About Me page">
+        <span class="material-symbols-outlined">open_in_new</span>
+        </router-link>
       </div>
 
       <div class="bb-it-experience">
@@ -47,9 +47,9 @@
         <div>
           <h2>IT EXPERIENCE</h2>
           <p>As an IT student, discover the programming languages and tools I use.</p>
-          <a href="it-experience.html" class="navigate" aria-label="Go to IT Experience page">
-            <span class="material-symbols-outlined">open_in_new</span>
-          </a>
+          <router-link to="/it-experience" class="navigate" aria-label="Go to IT Experience page">
+          <span class="material-symbols-outlined">open_in_new</span>
+          </router-link>
         </div>
       </div>
 
@@ -58,9 +58,9 @@
         <div>
           <h2>HOBBIES & INTERESTS</h2>
           <p>Maybe we have something in common! Discover what I do when I'm bored.</p>
-          <a href="hobbies-interests.html" class="navigate" aria-label="Go to Hobbies & Interests page">
-            <span class="material-symbols-outlined">open_in_new</span>
-          </a>
+          <router-link to="/hobbies-interests" class="navigate" aria-label="Go to Hobbies & Interests page">
+          <span class="material-symbols-outlined">open_in_new</span>
+          </router-link>
         </div>
       </div>
 
@@ -80,9 +80,9 @@
         <div>
           <h2>PICTURE GALLERY</h2>
           <p>I take pictures so I can remember! Discover my favorite pictures.</p>
-          <a href="picture-gallery.html" class="navigate" aria-label="Go to Picture Gallery page">
-            <span class="material-symbols-outlined">open_in_new</span>
-          </a>
+          <router-link to="/picture-gallery" class="navigate" aria-label="Go to Picture Gallery page">
+          <span class="material-symbols-outlined">open_in_new</span>
+            </router-link>
         </div>
       </div>
 
@@ -268,131 +268,7 @@ export default {
 };
 </script>
 
-<style>
-:root {
-  --primary: #6495ED;
-  --secondary: #9370DB;
-  --dark-blue: #0072BB;
-  --dark-purple: #6A5ACD;
-  --orange: #ff8c00;
-  --black: #353839;
-  --white: #FFFAF0;
-}
-
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-html,
-body {
-  font-size: 10px;
-  text-align: left;
-  height: 100%;
-  width: 100%;
-  margin: 0;
-  padding: 0;
-  background-color: var(--white);
-  color: var(--black);
-  cursor: url('../visuals/cursor_default.png'), default;
-}
-
-.dark-mode {
-  background-color: var(--black);
-  color: var(--white);
-}
-
-a,
-button,
-select,
-option {
-  cursor: url('../visuals/cursor_pointer.png'), pointer;
-}
-
-h1,
-h2,
-h3,
-h4 {
-  font-family: "Bebas Neue", Sans-Serif;
-  font-weight: 500;
-  line-height: 1;
-  letter-spacing: 2px;
-  color: var(--white);
-  margin: 0;
-}
-
-h1 {
-  line-height: 0.9;
-  font-size: 8rem;
-}
-
-h2 {
-  font-size: 6.5rem;
-}
-
-h3 {
-  font-size: 6rem;
-}
-
-h4 {
-  font-size: 3.5rem;
-}
-
-p {
-  font-family: Verdana, Sans-Serif;
-  font-size: 2rem;
-  color: var(--white);
-  margin: 0;
-  padding: 0;
-}
-
-.homepage {
-  display: absolute;
-  position: fixed;
-  top: 20px;
-  left: 20px;
-}
-
-.homepage-button {
-  width: 50px;
-  height: 50px;
-  border-radius: 50%;
-  background-color: var(--orange);
-  border: none;
-  font-weight: 600;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition-duration: .5s;
-  overflow: hidden;
-  position: relative;
-  padding: 8px;
-}
-
-.homepage-button:hover {
-  width: 140px;
-  border-radius: 50px;
-  transition-duration: .5s;
-  background-color: var(--orange);
-  align-items: center;
-}
-
-.homepage-button::before {
-  position: absolute;
-  top: -14px;
-  content: "Home";
-  color: var(--orange);
-  transition-duration: .3s;
-  font-size: 2px;
-}
-
-.homepage-button:hover::before {
-  font-size: 2rem;
-  opacity: 1;
-  transform: translateY(30px);
-  transition-duration: .3s;
-}
+<style scoped>
 html,
 body {
     overflow: hidden;

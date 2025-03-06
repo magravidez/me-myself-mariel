@@ -1,6 +1,6 @@
 <template>
 <div class="homepage">
-        <a href="index.html" class="navigate" aria-label="Go to Hobbies & Interests page">
+    <router-link to="/index" class="navigate" aria-label="Go to Hobbies & Interests page">
             <button class="homepage-button">
                 <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg"
                     xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="460.298px" height="460.297px"
@@ -20,7 +20,7 @@
                     </path>
                 </svg>
             </button>
-        </a>
+        </router-link>
     </div>
 
     <div class="bento-box">
@@ -259,130 +259,6 @@ for (var i = 0; i < btns.length; i++) {
 
 
 <style scoped>
-:root {
-  --primary: #6495ED;
-  --secondary: #9370DB;
-  --dark-blue: #0072BB;
-  --dark-purple: #6A5ACD;
-  --orange: #ff8c00;
-  --black: #353839;
-  --white: #FFFAF0;
-}
-
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-html,
-body {
-  font-size: 10px;
-  text-align: left;
-  height: 100%;
-  width: 100%;
-  margin: 0;
-  padding: 0;
-  background-color: var(--white);
-  color: var(--black);
-  cursor: url('../visuals/cursor_default.png'), default;
-}
-
-.dark-mode {
-  background-color: var(--black);
-  color: var(--white);
-}
-
-a,
-button,
-select,
-option {
-  cursor: url('../visuals/cursor_pointer.png'), pointer;
-}
-
-h1,
-h2,
-h3,
-h4 {
-  font-family: "Bebas Neue", Sans-Serif;
-  font-weight: 500;
-  line-height: 1;
-  letter-spacing: 2px;
-  color: var(--white);
-  margin: 0;
-}
-
-h1 {
-  line-height: 0.9;
-  font-size: 8rem;
-}
-
-h2 {
-  font-size: 6.5rem;
-}
-
-h3 {
-  font-size: 6rem;
-}
-
-h4 {
-  font-size: 3.5rem;
-}
-
-p {
-  font-family: Verdana, Sans-Serif;
-  font-size: 2rem;
-  color: var(--white);
-  margin: 0;
-  padding: 0;
-}
-
-.homepage {
-  display: absolute;
-  position: fixed;
-  top: 20px;
-  left: 20px;
-}
-
-.homepage-button {
-  width: 50px;
-  height: 50px;
-  border-radius: 50%;
-  background-color: var(--orange);
-  border: none;
-  font-weight: 600;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition-duration: .5s;
-  overflow: hidden;
-  position: relative;
-  padding: 8px;
-}
-
-.homepage-button:hover {
-  width: 140px;
-  border-radius: 50px;
-  transition-duration: .5s;
-  background-color: var(--orange);
-  align-items: center;
-}
-
-.homepage-button::before {
-  position: absolute;
-  top: -14px;
-  content: "Home";
-  color: var(--orange);
-  transition-duration: .3s;
-  font-size: 2px;
-}
-
-.homepage-button:hover::before {
-  font-size: 2rem;
-  opacity: 1;
-  transform: translateY(30px);
-  transition-duration: .3s;
-}
 html,
 body {
     background-color: var(--white);
