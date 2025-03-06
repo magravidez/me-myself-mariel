@@ -6,15 +6,17 @@ import ITExperience from "@/components/ITExperience.vue";
 import PictureGallery from "@/components/PictureGallery.vue";
 
 const routes = [
-  { path: "/", component: Homepage },
+  { path: "/", redirect: "/index" }, 
+  { path: "/index", component: Homepage },
   { path: "/about-me", component: AboutMe },
   { path: "/hobbies-interests", component: HobbiesInterests },
   { path: "/it-experience", component: ITExperience },
-  { path: "/picture-gallery", component: PictureGallery }
+  { path: "/picture-gallery", component: PictureGallery },
+  { path: "/:pathMatch(.*)*", redirect: "/index" } // ✅ Redirects unknown paths to homepage
 ];
 
 const router = createRouter({
-  history: createWebHistory(import.meta.env.BASE_URL), // ✅ Ensures correct path handling
+  history: createWebHistory(),
   routes,
 });
 
