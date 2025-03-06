@@ -11,8 +11,10 @@ const routes = [
   { path: "/about-me", component: AboutMe },
   { path: "/hobbies-interests", component: HobbiesInterests },
   { path: "/it-experience", component: ITExperience },
-  { path: "/picture-gallery", component: PictureGallery }
+  { path: "/picture-gallery", component: PictureGallery },
+  { path: "/:pathMatch(.*)*", redirect: "/index" } // 🔥 Handles 404 by redirecting to the homepage
 ];
+
 const router = createRouter({
   history: createWebHistory(),
   routes,
