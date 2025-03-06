@@ -11,10 +11,8 @@ const routes = [
   { path: "/about-me", component: AboutMe },
   { path: "/hobbies-interests", component: HobbiesInterests },
   { path: "/it-experience", component: ITExperience },
-  { path: "/picture-gallery", component: PictureGallery },
-  { path: "/:pathMatch(.*)*", redirect: "/index" } // ✅ Redirects unknown paths to homepage
+  { path: "/picture-gallery", component: PictureGallery }
 ];
-
 const router = createRouter({
   history: createWebHistory(),
   routes,
