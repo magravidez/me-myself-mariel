@@ -122,7 +122,7 @@
       <div class="modal-content-feedback">
         <span class="close"><i class="fa-solid fa-xmark"></i></span>
         <h2>Feedback</h2>
-        <form id="feedbackForm">
+        <form ref="feedbackForm" @submit.prevent="submitFeedback">
           <label for="fullName">Full Name:</label>
           <input type="text" id="fullName" name="fullName" required>
           <label for="email">Email:</label>
@@ -151,120 +151,127 @@
 </template>
 
 <script>
+import { supabase } from '../lib/supabase';
+
 export default {
   name: "HomePage",
   mounted() {
     // Smooth Transition
-    document.addEventListener("DOMContentLoaded", function () {
-      const navigateButtons = document.querySelectorAll(".navigate");
-      navigateButtons.forEach(button => {
-        button.addEventListener("click", function (event) {
-          event.preventDefault();
-          const targetUrl = this.getAttribute("href");
-          if (targetUrl) {
-            document.body.style.opacity = "0";
-            setTimeout(() => {
-              window.location.href = targetUrl;
-            }, 300);
-          }
-        });
-      });
-    });
-    // Light/Dark Mode
-    document.addEventListener("DOMContentLoaded", function () {
-      const modal = document.getElementById("theme-modal");
-      const lightBtn = document.getElementById("light-mode-btn");
-      const darkBtn = document.getElementById("dark-mode-btn");
-      const savedTheme = sessionStorage.getItem("theme");
-      if (savedTheme) {
-        document.body.classList.toggle("dark-mode", savedTheme === "dark");
-        modal.style.display = "none";
-      }
-      lightBtn.addEventListener("click", function () {
-        document.body.classList.remove("dark-mode");
-        sessionStorage.setItem("theme", "light");
-        modal.style.display = "none";
-      });
-      darkBtn.addEventListener("click", function () {
-        document.body.classList.add("dark-mode");
-        sessionStorage.setItem("theme", "dark");
-        modal.style.display = "none";
-      });
-    });
-    // Feedback
-    document.addEventListener("DOMContentLoaded", function () {
-      const modal = document.getElementById("feedbackModal");
-      const openModalLink = document.querySelector(".bb-feedback a");
-      const closeModal = document.querySelector(".close");
-      openModalLink.addEventListener("click", function (event) {
+    const navigateButtons = document.querySelectorAll(".navigate");
+    navigateButtons.forEach(button => {
+      button.addEventListener("click", function (event) {
         event.preventDefault();
-        modal.style.display = "flex";
-      });
-      closeModal.addEventListener("click", function () {
-        modal.style.display = "none";
-      });
-      window.addEventListener("click", function (event) {
-        if (event.target === modal) {
-          modal.style.display = "none";
+        const targetUrl = this.getAttribute("href");
+        if (targetUrl) {
+          document.body.style.opacity = "0";
+          setTimeout(() => {
+            window.location.href = targetUrl;
+          }, 300);
         }
       });
-      document.getElementById("feedbackForm").addEventListener("submit", function (event) {
-        event.preventDefault();
-        const thankYouMessage = document.getElementById("thankYouMessage");
-        const modal = document.getElementById("feedbackModal");
-        thankYouMessage.classList.remove("hidden");
-        thankYouMessage.style.opacity = "1";
-        setTimeout(() => {
-          thankYouMessage.style.opacity = "0";
-          setTimeout(() => {
-            thankYouMessage.classList.add("hidden");
-          }, 300);
-          modal.style.display = "none";
-        }, 2000);
-      });
     });
-    // Picture Gallery
-    filterSelection("all");
-    function filterSelection(c) {
-      var x, i;
-      x = document.getElementsByClassName("column");
-      if (c == "all") c = "";
-      for (i = 0; i < x.length; i++) {
-        w3RemoveClass(x[i], "show");
-        if (x[i].className.indexOf(c) > -1) w3AddClass(x[i], "show");
-      }
+
+    // Light/Dark Mode
+    const modal = document.getElementById("theme-modal");
+    const lightBtn = document.getElementById("light-mode-btn");
+    const darkBtn = document.getElementById("dark-mode-btn");
+    const savedTheme = sessionStorage.getItem("theme");
+
+    if (savedTheme) {
+      document.body.classList.toggle("dark-mode", savedTheme === "dark");
+      modal.style.display = "none";
     }
-    function w3AddClass(element, name) {
-      var i, arr1, arr2;
-      arr1 = element.className.split(" ");
-      arr2 = name.split(" ");
-      for (i = 0; i < arr2.length; i++) {
-        if (arr1.indexOf(arr2[i]) == -1) {
+
+    lightBtn.addEventListener("click", () => {
+      document.body.classList.remove("dark-mode");
+      sessionStorage.setItem("theme", "light");
+      modal.style.display = "none";
+    });
+
+    darkBtn.addEventListener("click", () => {
+      document.body.classList.add("dark-mode");
+      sessionStorage.setItem("theme", "dark");
+      modal.style.display = "none";
+    });
+
+    // Feedback Modal
+    const feedbackModal = document.getElementById("feedbackModal");
+    const openModalLink = document.querySelector(".bb-feedback a");
+    const closeModal = document.querySelector(".close");
+
+    openModalLink.addEventListener("click", (event) => {
+      event.preventDefault();
+      feedbackModal.style.display = "flex";
+    });
+
+    closeModal.addEventListener("click", () => {
+      feedbackModal.style.display = "none";
+    });
+
+    window.addEventListener("click", (event) => {
+      if (event.target === feedbackModal) {
+        feedbackModal.style.display = "none";
+      }
+    });
+
+    document.getElementById("feedbackForm").addEventListener("submit", this.submitFeedback);
+  },
+
+  methods: {
+      async submitFeedback() {
+      const formData = new FormData(this.$refs.feedbackForm);
+
+      const { data, error } = await supabase.from('feedback').insert([
+        {
+          full_name: formData.get('fullName'),
+          email: formData.get('email'),
+          fav_page: formData.get('favPage'),
+          fav_reason: formData.get('favReason'),
+          improve: formData.get('improve'),
+          comments: formData.get('comments')
+        }
+      ]);
+
+      if (error) {
+        console.error("Error submitting feedback:", error);
+        alert("Error submitting feedback. Check console for details.");
+      } else {
+        alert("Thank you for your feedback!");
+        this.$refs.feedbackForm.reset();
+      }
+    },
+
+    // Picture Gallery Filtering
+    filterSelection(c) {
+      let x = document.getElementsByClassName("column");
+      if (c === "all") c = "";
+      for (let i = 0; i < x.length; i++) {
+        this.w3RemoveClass(x[i], "show");
+        if (x[i].className.indexOf(c) > -1) this.w3AddClass(x[i], "show");
+      }
+    },
+
+    w3AddClass(element, name) {
+      let arr1 = element.className.split(" ");
+      let arr2 = name.split(" ");
+      for (let i = 0; i < arr2.length; i++) {
+        if (arr1.indexOf(arr2[i]) === -1) {
           element.className += " " + arr2[i];
         }
       }
-    }
-    function w3RemoveClass(element, name) {
-      var i, arr1, arr2;
-      arr1 = element.className.split(" ");
-      arr2 = name.split(" ");
-      for (i = 0; i < arr2.length; i++) {
+    },
+
+    w3RemoveClass(element, name) {
+      let arr1 = element.className.split(" ");
+      let arr2 = name.split(" ");
+      for (let i = 0; i < arr2.length; i++) {
         while (arr1.indexOf(arr2[i]) > -1) {
           arr1.splice(arr1.indexOf(arr2[i]), 1);
         }
       }
       element.className = arr1.join(" ");
     }
-    var btnContainer = document.getElementById("myBtnContainer");
-    var btns = btnContainer.getElementsByClassName("btn");
-    for (var i = 0; i < btns.length; i++) {
-      btns[i].addEventListener("click", function(){
-        var current = document.getElementsByClassName("active");
-        current[0].className = current[0].className.replace(" active", "");
-        this.className += " active";
-      });
-    }
-  },
+  }
 };
 </script>
 
