@@ -1,6 +1,6 @@
 <template>
 <div class="homepage">
-    <router-link to="/index" class="navigate" aria-label="Go to Hobbies & Interests page">
+    <router-link to="/" class="navigate" aria-label="Go to Hobbies & Interests page">
             <button class="homepage-button">
                 <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg"
                     xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="460.298px" height="460.297px"
